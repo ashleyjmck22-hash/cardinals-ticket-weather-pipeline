@@ -1,0 +1,20 @@
+The final dataset schema belongs to the final table created by the pipeline, which is stored inside A schema for the final dataset: cardinals_pipeline.db, specifically the table: fact_ticket_interest_weather
+
+# Schema
+-The table below integrates ticket engagement data with weather forecasts to create a dataset.
+| Column                 | Type    | Description                            |
+| ---------------------- | ------- | -------------------------------------- |
+| snapshot_date          | DATE    | Date when ticket activity was recorded |
+| game_date              | DATE    | Date of the game                       |
+| days_before_game       | INTEGER | Days between snapshot and game         |
+| unique_page_clicks     | INTEGER | Ticket page engagement                 |
+| unique_tickets_sold    | INTEGER | Tickets sold                           |
+| forecast_temp          | FLOAT   | Forecasted temperature                 |
+| forecast_precip_prob   | FLOAT   | Probability of precipitation           |
+| forecast_condition     | TEXT    | Human-readable weather condition       |
+| forecast_snapshot_date | DATE    | Date the forecast was retrieved        |
+
+# Why this Schema Works
+- analysis of engagement by days_before_game
+- compare engagement against precipitation forecasts
+- study how forecasts change as the game approaches 
