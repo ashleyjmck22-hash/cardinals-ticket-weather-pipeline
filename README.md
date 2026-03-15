@@ -13,7 +13,7 @@ Ticket Activity Dataset --> Python Ingestion script --> SQLite Database includes
 # Pipeline Components 
 -Ticket activity data is loaded into the database. 
 -Weather forecasts are retrived using Open-Meteo API 
--Tickey and weather datases are joined and transformed into a final table.
+-Ticket and weather datases are joined and transformed into a final table.
 - A single python script runs the full pipeline. The pipeline scripts are as structured as: pipeline --> ingest_tickey_data.py, pull_weather_data.py, transform_data.py, and run_pipeline.py
   
 # Pipeline Structure 
