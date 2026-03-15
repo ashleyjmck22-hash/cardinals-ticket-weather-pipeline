@@ -1,0 +1,53 @@
+The following steps explain how to replicate this project. These instructions assume the user has basic familiarity with Python but has not previously run this pipeline.
+
+# 1. Install Required Software  
+To run this project, install the following tools:
+- Python: download and install Python (version 3.9 or newer)
+- Git: Git allows you to clone the project repository 
+- VS code: provides the environment for editing scripts and running the pipeline 
+
+# 2. Download the Repository
+- Option 1: Using Git, open a new terminal in VS code and paste the code: git clone https://github.com/ashleyjmck22-hash/cardinals-ticket-weather-pipeline.git
+then move into into the project folder by pasting this code in the terminal: cd cardinals-ticket-weather-pipeline
+- Option 2: without Git, Go to the GitHub repository and click code and download ZIP, extract the folder locally.
+
+# 3. Install Required Python Libraries 
+- In the terminal in VS code install the required packages using pip, paste this code in the terminal:pip install pandas requests openpyxl
+
+# 4. Add the Input Datasets 
+- Place the provided ticket activity dataset into the following folder: data/raw/
+
+# 5. Project Structure
+- Your project directory should look like this:
+cardinals-ticket-weather-pipeline
+│
+├── data
+│   └── raw
+│       └── ticket_activity_clean.csv
+│
+├── notebooks
+│
+├── pipeline
+│   ├── ingest_ticket_data.py
+│   ├── pull_weather_data.py
+│   ├── transform_data.py
+│   └── run_pipeline.py
+│
+├── README.md
+├── .gitignore
+└── cardinals_pipeline.db
+
+# 6. Run the Pipeline 
+- Open the project folder in VS code and then open the terminal, run the pipeline by pasting this code into the terminal:python pipeline/run_pipeline.py
+
+# 7. What happens When the Pipeline Runs 
+-The pipeline performs three main steps:
+1. Ingest Ticket Activity Data by reading the ticket activity dataset, convert date fields, calculates days_before_games, and loads the data into SQLite 
+2. Retrieve Weather Forecast Data by calling the Open-Meteo API, retrieves forecase data for St. Louis and stores the weather data in the database 
+3. Combines ticket activity with weather forecasts, maps weather codes to readable conditions, and creates the final dataset.
+
+# 8. Pipeline Output 
+-After the pipeline finishes, it creates the database: cardinals_pipeline.db
+-The database contains three tables: ticket_activity, weather_forecast, and fact_ticket_interest_weather
+-The final table used for analysis is: fact_ticket_interest_weather
+
