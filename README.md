@@ -4,7 +4,7 @@ ____________________________________________________________________________
 # Project Summary
 -This project demonstrates how a data pipeline can integrate ticket activity data with weather forecasts to analyze how fan engagement changes as game day approaches.
 -The pipeline ingests simulated ticket activity data, retrieves weather forecast data using a public API, and transforms the combined dataset into a table that allows exploration of how weather forecasts influence ticket demand.
--The final dataset preserves enables analysts to study how evolving weather forecasts correlate with ticket page engagement in the days leading up to a game.
+-The final dataset enables analysts to study how evolving weather forecasts correlate with ticket page engagement in the days leading up to a game.
 ____________________________________________________________________________
 # Architecture
 -The pipeline follows a ETL (Extract, Transform, Load) architecture that pulls raw data from multiple sources, cleans, and transform it. The workflow is as follows: 
