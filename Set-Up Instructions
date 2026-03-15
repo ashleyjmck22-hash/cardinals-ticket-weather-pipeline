@@ -8,7 +8,7 @@ To run this project, install the following tools:
 
 # 2. Download the Repository
 - Option 1: Using Git, open a new terminal in VS code and paste the code: git clone https://github.com/ashleyjmck22-hash/cardinals-ticket-weather-pipeline.git
-then move into into the project folder by pasting this code in the terminal: cd cardinals-ticket-weather-pipeline
+then move into the project folder by pasting this code in the terminal: cd cardinals-ticket-weather-pipeline
 - Option 2: without Git, Go to the GitHub repository and click code and download ZIP, extract the folder locally.
 
 # 3. Install Required Python Libraries 
@@ -18,7 +18,7 @@ then move into into the project folder by pasting this code in the terminal: cd 
 - Place the provided ticket activity dataset into the following folder: data/raw/
 
 # 5. Project Structure
-- Your project directory should look like this:
+- Your project directory should look like this in VS code:
 cardinals-ticket-weather-pipeline
 │
 ├── data
