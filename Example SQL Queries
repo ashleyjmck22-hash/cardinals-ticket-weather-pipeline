@@ -1,0 +1,71 @@
+Example SQL Queries  
+______________________________________________________________________________________________
+# Query 1: 
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect(r"C:\Users\ashle\OneDrive\Documents\cardinals-ticket-weather-pipeline\cardinals_pipeline.db")
+
+query = """
+SELECT
+    days_before_game,
+    AVG(unique_page_clicks) AS avg_clicks,
+    AVG(forecast_precip_prob) AS avg_precip
+FROM fact_ticket_interest_weather
+GROUP BY days_before_game
+ORDER BY days_before_game
+"""
+
+result = pd.read_sql(query, conn)
+conn.close()
+
+result.head(10)
+
+# Explanation
+- This query aggregates engagement metrics by days before the game to understand how ticket interest evolves as the event approaches. 
+It calculates the average ticket page clicks and precipitation forecast probability for each observation window. The output shows that 
+engagement tends to increase as game day approaches, and it provides a starting point for analyzing whether weather forecast influence fan 
+behavior.
+_________________________________________________________________________________
+# Query 2: 
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect(r"C:\Users\ashle\OneDrive\Documents\cardinals-ticket-weather-pipeline\cardinals_pipeline.db")
+
+query = """
+SELECT
+    days_before_game,
+    AVG(unique_page_clicks) AS avg_clicks,
+    AVG(unique_tickets_sold) AS avg_tickets
+FROM fact_ticket_interest_weather
+GROUP BY days_before_game
+ORDER BY days_before_game
+"""
+
+result = pd.read_sql(query, conn)
+conn.close()
+
+result.head(10)
+
+# Explaination
+-This query analyzes how both ticket engagement and ticket purchases change as the game approaches. By grouping observations by days before the game, 
+we can see how demand evolves over time. The results show that both clicks and ticket sales increase closer to game day, which provides useful insight into fan purchasing behavior and potential marketing opportunities.
+______________________________________________________________________________________________________________________________________
+# Creating Visuals 
+
+import matplotlib.pyplot as plt
+
+plt.figure()
+plt.plot(result["days_before_game"], result["avg_clicks"])
+plt.xlabel("Days Before Game")
+plt.ylabel("Average Page Clicks")
+plt.title("Ticket Page Clicks Leading Up to Game Day")
+plt.gca().invert_xaxis()
+plt.show()
+
+# Explanation: 
+- This code creates a line chart that demonstrates the relationship between time before the game and fan engagement.
+By showing the average number of ticket page clicks as the game approaches.
+The engagement increased in the final days before a game suggesting fans become more active as the event approaches.
+
